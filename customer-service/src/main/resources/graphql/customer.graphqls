@@ -1,0 +1,30 @@
+schema {
+    query: CustomerQueries
+    mutation: CustomerMutations
+}
+
+type CustomerQueries {
+    customers: [Customer]
+    customer(id: ID!): Customer
+
+}
+type CustomerMutations {
+    createCustomer(customer: CustomerInput!): Customer!
+    deleteCustomer(id: ID!) : Boolean
+    updateCustomer(id: ID!, customer: CustomerInput!): Customer!
+}
+
+
+type Customer {
+    id:String!
+    name: String!
+    emailAddress: String!
+    address:String!
+}
+
+
+input CustomerInput {
+    name: String!
+    emailAddress: String!
+    address:String!
+}
